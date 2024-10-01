@@ -1,0 +1,13 @@
+services:
+  podgrab:
+    image: akhilrex/podgrab
+    container_name: podgrab
+    environment:
+      - CHECK_FREQUENCY=240
+     # - PASSWORD=password     ## Uncomment to enable basic authentication, username = podgrab
+    volumes:
+      - /home/atort88/docker/appdata/podgrab/config:/config
+      - /media/comics_nas/podcasts/podgrab:/assets
+    ports:
+      - "192.168.0.208:8090:8080"
+    restart: unless-stopped
